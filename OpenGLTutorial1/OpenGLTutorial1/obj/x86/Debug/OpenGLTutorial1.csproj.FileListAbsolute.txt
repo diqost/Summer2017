@@ -1,0 +1,8 @@
+C:\МШП\opengl4tutorials-master\OpenGLTutorial1\OpenGLTutorial1\bin\Debug\OpenGLTutorial1.exe.config
+C:\МШП\opengl4tutorials-master\OpenGLTutorial1\OpenGLTutorial1\bin\Debug\OpenGLTutorial1.exe
+C:\МШП\opengl4tutorials-master\OpenGLTutorial1\OpenGLTutorial1\bin\Debug\OpenGLTutorial1.pdb
+C:\МШП\opengl4tutorials-master\OpenGLTutorial1\OpenGLTutorial1\bin\Debug\OpenGL.dll
+C:\МШП\opengl4tutorials-master\OpenGLTutorial1\OpenGLTutorial1\bin\Debug\Tao.FreeGlut.dll
+C:\МШП\opengl4tutorials-master\OpenGLTutorial1\OpenGLTutorial1\obj\x86\Debug\OpenGLTutorial1.csprojResolveAssemblyReference.cache
+C:\МШП\opengl4tutorials-master\OpenGLTutorial1\OpenGLTutorial1\obj\x86\Debug\OpenGLTutorial1.exe
+C:\МШП\opengl4tutorials-master\OpenGLTutorial1\OpenGLTutorial1\obj\x86\Debug\OpenGLTutorial1.pdb
