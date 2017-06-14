@@ -35,7 +35,7 @@ namespace OpenGLTutorial1
         }
         public void CheckBounds()
         {
-            if (Math.Abs(x + size.X / 2) > bounds)
+            if (Math.Abs(x) > bounds)
             {
                 x = Math.Sign(x) * bounds;
                 dirrection.X *= -1;

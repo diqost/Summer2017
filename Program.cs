@@ -81,7 +81,7 @@ namespace OpenGLTutorial1
             Gl.UseProgram(program);
             Gl.BindBufferToShaderAttribute(squareVertexes, program, "vertexPosition");
             Gl.BindBuffer(squareElements);
-           // CheckCollisions();
+            CheckCollisions();
             for (int i = 0; i < squares.Count; i++)
             {
                 // Console.Write("Drawing square");
