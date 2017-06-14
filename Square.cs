@@ -20,7 +20,7 @@ namespace OpenGLTutorial1
             this.x = (parent1.x + parent2.x) / 2;
             this.y = (parent1.y + parent2.y) / 2;
             this.size = (parent1.size + parent2.size) / 2;
-            this.dirrection = (parent1.dirrection + parent2.dirrection) / 2;
+            this.dirrection = new Vector2(rnd.Next(-255, 256), rnd.Next(-255, 256)).Normalize() * 2;
             this.color = (parent1.color + parent2.color) / 2;
             this.max_age = rnd.Next(1, 5);
             this.current_age = 0;
@@ -38,6 +38,7 @@ namespace OpenGLTutorial1
             this.max_children = max_children;
             this.current_age = 0;
             this.current_children = 0;
+            Console.WriteLine("Created new");
             
         }
         public void addChild()
@@ -74,9 +75,9 @@ namespace OpenGLTutorial1
         public bool collide(Square other)
         {
              Vector2 dist = new Vector2(x - other.x, y - other.y);
-            bool children = current_children <= max_children;
+            bool children = current_children <= max_children || other.current_children <= other.max_children;
             bool age = current_age > 3 && other.current_age > 3;
-            return (dist.Length <= (size.X + other.size.X)) && age && children;
+            return (dist.Length <= (size.X  +  other.size.X) * Math.Sqrt(2)) && age && children;
                
         }
     }

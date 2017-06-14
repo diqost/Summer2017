@@ -119,7 +119,7 @@ namespace OpenGLTutorial1
             foreach (var collision in collisions)
             {
                 //collision.Item1
-                Console.WriteLine("Spawning NEW");
+                Console.WriteLine("spawn new in collision");
                 squares.Add(new Square(collision.Item1,
                     collision.Item2));
                 collision.Item1.addChild();

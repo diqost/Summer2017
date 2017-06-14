@@ -28,8 +28,9 @@ namespace OpenGLTutorial1
                     float r = int.Parse(args[3]) / 255f;
                     float g = int.Parse(args[4]) / 255f;
                     float b = int.Parse(args[5]) / 255f;
-                     
-                    result.Add(new Square(x,y,size,new Vector3(r,g,b)));
+                    int max_children = int.Parse(args[6]);
+                    int max_age = int.Parse(args[7]);
+                    result.Add(new Square(x,y,size,new Vector3(r,g,b), max_age, max_children));
                 }
             }
             return result;
