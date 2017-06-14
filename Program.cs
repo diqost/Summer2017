@@ -57,7 +57,17 @@ namespace OpenGLTutorial1
        
 
         static void OnDisplay() { }
-
+        static void AngelOfDeath()
+        {
+            List<Square> deleteIndexes = new List<Square>();
+            for (int i = 0; i < squares.Count; i++)
+            {
+                if (squares[i].isDead())
+                    deleteIndexes.Add(squares[i]);
+            }
+            foreach (var square in deleteIndexes)
+                squares.Remove(square);
+        }
         static void OnRenderFrame()
         {
             if (Math.Abs(move) > 1)
@@ -82,9 +92,10 @@ namespace OpenGLTutorial1
             Gl.BindBufferToShaderAttribute(squareVertexes, program, "vertexPosition");
             Gl.BindBuffer(squareElements);
             CheckCollisions();
+            AngelOfDeath();
             for (int i = 0; i < squares.Count; i++)
             {
-                // Console.Write("Drawing square");
+                squares[i].Grow(deltaTime);
                 squares[i].CheckBounds();
                 squares[i].move(deltaTime);
                 drawSquare(squares[i]);
@@ -97,28 +108,25 @@ namespace OpenGLTutorial1
         {
             var collisions = new List<Tuple<Square, Square>>();
             for (int i = 0; i < squares.Count; i++)
-            {
                 for (int j = i+1; j < squares.Count; j++)
                 {
                     if (squares[i].collide(squares[j])) {
-            collisions.Add(
-                new Tuple<Square, Square>(squares[i], squares[j]));
+                        collisions.Add(
+                            new Tuple<Square, Square>(squares[i], squares[j]));
                     }
                 }
-                foreach(var collision in collisions)
-                {
-                    //collision.Item1
-                    int index = squares.FindIndex(t => t == collision.Item1);
-                    if (index >= 0)
-                        squares.RemoveAt(index);
-
-                    index = squares.FindIndex(t => t == collision.Item2);
-                    if (index >= 0)
-                        squares.RemoveAt(index);
-                }
+         
+            foreach (var collision in collisions)
+            {
+                //collision.Item1
+                Console.WriteLine("Spawning NEW");
+                squares.Add(new Square(collision.Item1,
+                    collision.Item2));
+                collision.Item1.addChild();
+                collision.Item2.addChild();
             }
 
-  
+
         }
         static void drawSquare(Square square)
         {
